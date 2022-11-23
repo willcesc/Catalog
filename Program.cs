@@ -1,4 +1,6 @@
 using Catalog.Models;
+using Catalog.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,10 +11,14 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddSingleton<IItemModel,ItemModel>();
+//builder.Services.AddSingleton<IItemModel,ItemModel>();
+builder.Services.AddDbContext<MySQLDbContext>(options =>
+{
+    options.UseSqlServer(builder.Configuration.GetConnectionString("constring"));
+});
 
 var app = builder.Build();
- 
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
