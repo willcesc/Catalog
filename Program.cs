@@ -1,6 +1,5 @@
 using Catalog.Models;
 using Catalog.Repositories;
-using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -11,15 +10,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-//builder.Services.AddSingleton<IItemModel,ItemModel>();
-
-/*
-builder.Services.AddDbContext<MySQLDbContext>(options =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("constring"));
-});
-*/
-
+builder.Services.AddSingleton<IItemModel, ItemSQLModel>();
 
 var app = builder.Build();
 

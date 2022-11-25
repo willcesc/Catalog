@@ -1,6 +1,7 @@
 using Catalog.DTOs;
 using Catalog.Entities;
 using Catalog.Models;
+using Catalog.Repositories;
 using Microsoft.AspNetCore.DataProtection.Repositories;
 using Microsoft.AspNetCore.Http.Features;
 using Microsoft.AspNetCore.Mvc;
