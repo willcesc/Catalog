@@ -5,13 +5,13 @@ namespace Catalog.Models
 
     public interface IItemModel
     {
-        Item getItem(Guid id);
+        Item getItem(int id);
         IEnumerable<Item> getItems();
 
         void createItem(Item item);
 
         void updateItem(Item item);
 
-        void deleteItem(Guid id);
+        void deleteItem(int id);
     }
 }

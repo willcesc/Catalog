@@ -24,7 +24,7 @@ namespace Catalog.Models
 
         }
 
-        public Item getItem(Guid id)
+        public Item getItem(int id)
         {
             return items.Where(item => item.id == id).SingleOrDefault();
         }
@@ -40,7 +40,7 @@ namespace Catalog.Models
             items[index] = newItem;
         }
 
-        public void deleteItem(Guid id)
+        public void deleteItem(int id)
         {
             int index = items.FindIndex(item => item.id == id);
             items.RemoveAt(index);

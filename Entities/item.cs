@@ -4,7 +4,7 @@ namespace Catalog.Entities
     public record Item
     {
 
-        public Guid id { get; init; }
+        public int id { get; init; }
 
         public string name { get; init; }
 

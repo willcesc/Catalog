@@ -10,12 +10,12 @@ namespace Catalog.Repositories
             throw new NotImplementedException();
         }
 
-        public void deleteItem(Guid id)
+        public void deleteItem(int id)
         {
             throw new NotImplementedException();
         }
 
-        public Item getItem(Guid id)
+        public Item getItem(int id)
         {
             throw new NotImplementedException();
         }

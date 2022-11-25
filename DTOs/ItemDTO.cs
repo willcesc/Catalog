@@ -5,7 +5,7 @@ namespace Catalog.DTOs
     public record ItemDTO
     {
 
-        public Guid id { get; init; }
+        public int id { get; init; }
 
         public string name { get; init; }
 

@@ -12,10 +12,14 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //builder.Services.AddSingleton<IItemModel,ItemModel>();
+
+/*
 builder.Services.AddDbContext<MySQLDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("constring"));
 });
+*/
+
 
 var app = builder.Build();
 

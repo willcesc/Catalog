@@ -32,7 +32,7 @@ namespace Catalog.Controllers
 
         // GET /items/id
         [HttpGet("{id}")]
-        public ActionResult<ItemDTO> getItem(Guid id)
+        public ActionResult<ItemDTO> getItem(int id)
         { // ActionResult allows us to return different types (error message or Item)
             Item item = model.getItem(id);
 
@@ -50,7 +50,7 @@ namespace Catalog.Controllers
         {
             Item item = new()
             {
-                id = Guid.NewGuid(),
+                //id = Guid.NewGuid(),
                 name = itemDTO.name,
                 price = itemDTO.price,
                 createdDate = DateTimeOffset.UtcNow
@@ -64,7 +64,7 @@ namespace Catalog.Controllers
 
 
         [HttpPut]
-        public ActionResult updateItem(Guid id, UpdateItemDTO itemDTO)
+        public ActionResult updateItem(int id, UpdateItemDTO itemDTO)
         {
             Item existingItem = model.getItem(id);
 
@@ -85,7 +85,7 @@ namespace Catalog.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteItem(Guid id)
+        public ActionResult DeleteItem(int id)
         {
 
             Item existingItem = model.getItem(id);

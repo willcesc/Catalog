@@ -1,19 +1,18 @@
-using Catalog.Entities;
+namespace WebApi.Helpers;
+
 using Microsoft.EntityFrameworkCore;
+using Catalog.Entities;
+using MySql.Data.EntityFrameworkCore;
 
-namespace Catalog.Repositories
+public class MySQLDbContext : DbContext
 {
-    public class MySQLDbContext : DbContext
+    public MySQLDbContext(DbContextOptions options) : base(options)
     {
-
-        public MySQLDbContext(DbContextOptions<MySQLDbContext> options)
-        : base(options)
-        {
-
-        }
-
-        public DbSet<Item> items { get; set; }
-
     }
 
+    public DbSet<Item> items { get; set; }
+
 }
+
+
+
