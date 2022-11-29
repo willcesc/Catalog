@@ -1,3 +1,4 @@
+using Catalog.DTOs;
 using Catalog.Entities;
 
 namespace Catalog.Models
@@ -10,7 +11,7 @@ namespace Catalog.Models
 
         void createItem(Item item);
 
-        void updateItem(Item item);
+        void updateItem(Item item, UpdateItemDTO updateItemDTO);
 
         void deleteItem(int id);
     }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Catalog.Entities
 {
 
-    public record Item
+    public class Item
     {
 
         public int id { get; init; }
@@ -12,9 +12,9 @@ namespace Catalog.Entities
         [Required]
         [MaxLength(50)]
         [Column(TypeName = "varchar(50)")]
-        public string name { get; init; }
+        public string name { get; set; }
 
-        public decimal price { get; init; }
+        public decimal price { get; set; }
 
         public DateTimeOffset createdDate { get; init; }
 

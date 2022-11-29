@@ -65,7 +65,7 @@ namespace Catalog.Controllers
 
 
         [HttpPut]
-        public ActionResult updateItem(int id, UpdateItemDTO itemDTO)
+        public ActionResult updateItem(int id, UpdateItemDTO updateItemDTO)
         {
             Item existingItem = model.getItem(id);
 
@@ -74,13 +74,17 @@ namespace Catalog.Controllers
                 return NotFound();
             }
 
-            Item updatedItem = existingItem with
+            if (updateItemDTO.name is null)
             {
-                name = itemDTO.name,
-                price = itemDTO.price
-            };
+                updateItemDTO.name = existingItem.name;
+            }
 
-            model.updateItem(updatedItem);
+            if (updateItemDTO.price == 0)
+            {
+                updateItemDTO.price = existingItem.price;
+            }
+
+            model.updateItem(existingItem, updateItemDTO);
 
             return NoContent(); // status 204 no content
         }

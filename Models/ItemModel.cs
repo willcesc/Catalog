@@ -1,5 +1,6 @@
 using System.Net;
 using System.Xml.Serialization;
+using Catalog.DTOs;
 using Catalog.Entities;
 using Catalog.Repositories;
 
@@ -24,6 +25,8 @@ namespace Catalog.Models
 
         }
 
+
+
         public Item getItem(int id)
         {
             return items.Where(item => item.id == id).SingleOrDefault();
@@ -34,10 +37,13 @@ namespace Catalog.Models
             items.Add(newItem);
         }
 
-        public void updateItem(Item newItem)
+        public void updateItem(Item item, UpdateItemDTO updateItemDTO)
         {
-            int index = items.FindIndex(item => item.id == newItem.id);
-            items[index] = newItem;
+            item.name = updateItemDTO.name;
+            item.price = updateItemDTO.price;
+
+            int index = items.FindIndex(x => x.id == item.id);
+            items[index] = item;
         }
 
         public void deleteItem(int id)
