@@ -1,6 +1,7 @@
 using Catalog.Models;
 using Catalog.Repositories;
 using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddSingleton<IItemModel, ItemModelSQL>();
+
+//builder.Services.AddHealthChecks();
 
 var app = builder.Build();
 
@@ -28,5 +31,12 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+/*
+app.MapHealthChecks("/healthcheck", new HealthCheckOptions
+{
+    ResponseWriter = WriteResponse
+}).RequireHost("*:8880");
+*/
 
 app.Run();

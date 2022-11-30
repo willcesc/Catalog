@@ -27,9 +27,9 @@ namespace Catalog.Models
 
 
 
-        public Item getItem(int id)
+        public async Task<Item> getItemAsync(int id)
         {
-            return items.Where(item => item.id == id).SingleOrDefault();
+            return await Task.FromResult(items.Where(item => item.id == id).SingleOrDefault());
         }
 
         public void createItem(Item newItem)

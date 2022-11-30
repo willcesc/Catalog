@@ -1,6 +1,7 @@
 using Catalog.DTOs;
 using Catalog.Entities;
 using Catalog.Repositories;
+using Microsoft.EntityFrameworkCore;
 
 namespace Catalog.Models
 {
@@ -31,9 +32,10 @@ namespace Catalog.Models
             _db.SaveChanges();
         }
 
-        public Item getItem(int id)
+        // Test of async method
+        public async Task<Item> getItemAsync(int id)
         {
-            return _db.items.FirstOrDefault(x => x.id == id);
+            return await _db.items.FirstOrDefaultAsync(x => x.id == id);
         }
 
 

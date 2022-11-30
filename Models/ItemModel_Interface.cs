@@ -6,7 +6,7 @@ namespace Catalog.Models
 
     public interface IItemModel
     {
-        Item getItem(int id);
+        Task<Item> getItemAsync(int id);
         IEnumerable<Item> getItems();
 
         void createItem(Item item);

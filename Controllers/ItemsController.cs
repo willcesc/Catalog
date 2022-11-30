@@ -33,9 +33,9 @@ namespace Catalog.Controllers
 
         // GET /items/id
         [HttpGet("{id}")]
-        public ActionResult<ItemDTO> getItem(int id)
+        public async Task<ActionResult<ItemDTO>> getItem(int id)
         { // ActionResult allows us to return different types (error message or Item)
-            Item item = model.getItem(id);
+            Item item = await model.getItemAsync(id);
 
             if (item is null)
             {
@@ -65,9 +65,9 @@ namespace Catalog.Controllers
 
 
         [HttpPut]
-        public ActionResult updateItem(int id, UpdateItemDTO updateItemDTO)
+        public async Task<ActionResult> updateItem(int id, UpdateItemDTO updateItemDTO)
         {
-            Item existingItem = model.getItem(id);
+            Item existingItem = await model.getItemAsync(id);
 
             if (existingItem is null)
             {
@@ -90,10 +90,10 @@ namespace Catalog.Controllers
         }
 
         [HttpDelete("{id}")]
-        public ActionResult DeleteItem(int id)
+        public async Task<ActionResult> DeleteItem(int id)
         {
 
-            Item existingItem = model.getItem(id);
+            Item existingItem = await model.getItemAsync(id);
 
             if (existingItem is null)
             {
